@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG Social Links</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" type="text/css">
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        html,
+        body {
+            font-family: "Opsn Sans", sans-serif;
+            font-size: 14px;
+            margin: 8px;
+            min-height: 180px;
+            padding: 0;
+            width: 384px;
+
+        }
+
+        h1 {
+            font-family: "Menlo", monospace;
+            font-size: 20px;
+            font-weight: 400;
+            margin: 0;
+            color: #2f5876;
+        }
+
+        a:link,
+        a:visited {
+            color: black;
+            outline: 0;
+            text-decoration: none;
+
+        }
+
+        img {
+            width: 30px;
+        }
+
+        .modal-header {
+            align-items: center;
+            border-bottom: 0.5px solid #72776d;
+        }
+
+        .modal-content {
+            padding: 0 20px;
+        }
+
+        .modal-icons {
+            border-top: 0.5px solid #72776d;
+        }
+
+        .logo-icon {
+            vertical-align: text-bottom;
+            margin-right: 10px;
+        }
+
+        .version {
+            color: rgb(115, 138, 115);
+
+        }
+
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+        }
+
+        .flex {
+
+            transition: opacity 0.2s ease-in-out;
+            opacity: 1;
+            width: 100px;
+        }
+
+        .flex:hover {
+            opacity: 0.4;
+        }
+
+        .flex .fa {
+            font-size: 40px;
+            color: #2f5876;
+        }
+
+        .details {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+        }
+
+        .details .fa {
+            font-size: 1.6rem;
+            color: rgb(111, 0, 255);
+        }
+
+        .details .iconinputwrapper {
+            display: flex;
+            justify-content: space-between;
+            width: 250px;
+            border-radius: 5px;
+            margin: 3px;
+            padding: 5px 10px;
+            border: 1px solid blue;
+            align-items: center;
+        }
+
+        .details input:focus {
+            border: none;
+            outline: none;
+            border-bottom: 2px solid rgb(47, 91, 236);
+        }
+
+        .details input {
+            font-size: 1.2rem;
+            box-sizing: border-box;
+            padding: 5px;
+            border: none;
+
+        }
+
+        .socialheading {
+            display: flex;
+            padding: 10px;
+            font-size: 2rem;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        span:first-child {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        span:nth-child(2) {
+            font-size: 1.5rem;
+            color: gray;
+        }
+
+        .submitbutton {
+            margin: 10px;
+        }
+
+        .button {
+            font-size: 1.4rem;
+            padding: 5px 10px;
+            background-color: rgb(47, 85, 255);
+            border: none;
+            box-shadow: 1px 4px 2px 1px black,
+                1px 4px 1px 2px blue;
+            color: white;
+            transition: transform 0.1s, box-shadow 0.1s;
+            cursor: pointer;
+
+        }
+
+        .button:active {
+            transform: translateY(4px);
+            box-shadow: 0.5px 0.5px 0.5px 0.5px black;
+        }
+
+        .clicked {
+            animation: clicked 1s;
+        }
+
+        .disabled {
+            opacity: 0.5;
+        }
+
+        .invisible {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="setup">
+
+        <div class="socialheading">
+            <span>Your Social Links:</span><span>Copy-Paste</span>
+        </div>
+        <div class="details">
+            <div class="iconinputwrapper">
+                <i class="fa fa-globe"></i>
+                <input class="sociallinks" id="websitelink" type="text" placeholder="Enter Website Link">
+            </div>
+            <div class="iconinputwrapper">
+                <i class="fa fa-facebook"></i>
+                <input class="sociallinks" id="facebooklink" type="text" placeholder="Enter Facebook Link">
+            </div>
+            <div class="iconinputwrapper">
+                <i class="fa fa-youtube"></i>
+                <input class="sociallinks" id="youtubelink" type="text" placeholder="Enter Youtube Link">
+            </div>
+            <div class="iconinputwrapper">
+                <i class="fa fa-twitter"></i>
+                <input class="sociallinks" id="twitterlink" type="text" placeholder="Enter Twitter Link">
+            </div>
+            <div class="iconinputwrapper">
+                <i class="fa fa-github"></i>
+                <input class="sociallinks" id="githublink" type="text" placeholder="Enter Github Link">
+            </div>
+
+        </div>
+        <div class="submitbutton">
+            <button id="submitbutton" class="button">Submit</button>
+        </div>
+    </div>
+    <div id="mainlink">
+
+        <div class="modal-headee">
+            <h1 class="logo">
+                <img src="./images/RG_icon.png" alt="" class="logo-icon" />RG Social Links
+                <span class="version">(1.0.0)</span>
+            </h1>
+        </div>
+        <div class="modal-content">
+            <p>Easily access Your Social Link </p>
+        </div>
+
+        <div class="modal-icons">
+            <div class="flex-container">
+                <div class="flex">
+                    <a  target="_blank" class="linktoembed" data-link="websitelink" href="http://www.youtube.com">
+                        <i class="fa fa-globe"></i>
+                    </a>
+                </div>
+                <div class="flex">
+                    <a  target="_blank"class="linktoembed" data-link="youtubelink" href="http://www.youtube.com">
+                        <i class="fa fa-youtube"></i>
+                    </a>
+                </div>
+                <div class="flex">
+                    <a target="_blank" class="linktoembed" data-link="facebooklink" href="http://www.youtube.com">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                </div>
+                <div class="flex">
+                    <a  target="_blank"class="linktoembed" data-link="twitterlink" href="http://www.youtube.com">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                </div>
+                <div class="flex">
+                    <a  target="_blank"class="linktoembed" data-link="githublink" href="http://www.youtube.com">
+                        <i class="fa fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./popup.js"></script>
+</body>
+
+</html>
